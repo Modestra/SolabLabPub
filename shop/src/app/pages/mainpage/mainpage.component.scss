@@ -1,0 +1,13 @@
+.cards{
+    &__container{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    &__block{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(0.3fr));
+        min-height: 80vh;
+        gap: 8px;
+    }
+}

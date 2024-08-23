@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./templates.scss";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+//Перезаписанные стили с Bootstrap
+.btn{
+    height: 36px;
+}
