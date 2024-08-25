@@ -4,7 +4,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+.btn img{
+    width: 20px;
+    height: 20px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
 //Перезаписанные стили с Bootstrap
-.btn{
+.btn .form-control{
     height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.btn-outline-custom{
+    border: none;
+}
+.btn-outline-info{
+    color:#3B82F6;
+    border-color: #3B82F6;
 }
