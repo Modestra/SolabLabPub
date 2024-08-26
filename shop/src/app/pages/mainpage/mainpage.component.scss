@@ -4,6 +4,14 @@
         flex-direction: column;
         flex-grow: 1;
     }
+    &__container p{
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+        text-align: left;
+        margin-top: 32px;
+        margin-bottom: 24px;
+    }
     &__block{
         display: flex;
         flex-direction: row;
