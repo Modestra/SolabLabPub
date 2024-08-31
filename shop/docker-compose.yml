@@ -1,0 +1,14 @@
+version: "3.3"
+networks:
+  backend:
+    driver: bridge
+services:
+  frontend:
+    container_name: frontend
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
