@@ -2,14 +2,8 @@
 <section class="container cards__container">
     <p>Рекомендации для вас</p>
     <div class="cards__block">
-        <!--Здесь будет for-->
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
+        @for (card of example; track $index) {
+            <app-card [cardinfo]="card"></app-card>
+        }
     </div>
 </section>
