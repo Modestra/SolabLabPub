@@ -12,6 +12,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "shop"
     strategy:
       matrix:
         node-version: [22.x]
@@ -30,6 +33,9 @@ jobs:
   ssh_connection:
     name: Connection on Virtual Machine
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "shop"
     needs:
       - build
     steps:
