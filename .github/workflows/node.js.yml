@@ -50,6 +50,6 @@ jobs:
           port: 22
           script: |
             cd ${{ secrets.DIRECTORY_ROOT }}
-            ls
             git pull origin deploy
+            ls
             bash ./scripts/docker-install.sh
