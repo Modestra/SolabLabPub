@@ -7,16 +7,16 @@ import { CardProduct } from '../../entities/card';
 @Component({
   selector: 'app-mainpage',
   standalone: true,
-  imports: [HeaderComponent, CardComponent, CommonModule],
+  imports: [HeaderComponent, CardComponent, CommonModule,],
   templateUrl: './mainpage.component.html',
   styleUrl: './mainpage.component.scss'
 })
 export class MainpageComponent implements OnInit {
 
-  public name : string = "";
-  public sell : number = 0;
+  public name: string = "";
+  public sell: number = 0;
 
-  public example : CardProduct[] = [
+  public example: CardProduct[] = [
     {
       name: "Гитара Fender",
       sell: 20000,
@@ -50,6 +50,6 @@ export class MainpageComponent implements OnInit {
   ]
 
   ngOnInit(): void {
-    
+
   }
 }
