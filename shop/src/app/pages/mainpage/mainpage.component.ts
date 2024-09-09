@@ -3,11 +3,13 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { CardComponent } from "../../components/card/card.component";
 import { CommonModule } from '@angular/common';
 import { CardProduct } from '../../entities/card';
+import { AuthModule } from "../../components/auth/auth.module";
+import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-mainpage',
+  imports: [HeaderComponent, CardComponent, CommonModule, AuthModule],
   standalone: true,
-  imports: [HeaderComponent, CardComponent, CommonModule,],
   templateUrl: './mainpage.component.html',
   styleUrl: './mainpage.component.scss'
 })

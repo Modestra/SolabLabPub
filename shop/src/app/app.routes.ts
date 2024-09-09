@@ -5,5 +5,13 @@ export const routes: Routes = [
     {
         path: "",
         component: MainpageComponent
+    },
+    {
+        path: "register",
+        component: MainpageComponent
+    },
+    {
+        path: "login",
+        component: MainpageComponent
     }
 ];
