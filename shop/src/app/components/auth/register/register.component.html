@@ -1,5 +1,5 @@
 <div class="auth__page">
-    <form class="auth__form">
+    <form [formGroup]="form" (submit)="onSubmit(form)" class="auth__form">
         <div class="auth__header">
             <p>Регистрация</p>
             <button routerLink="/">
@@ -11,9 +11,9 @@
             </button>
         </div>
         <div class="auth__main">
-            <input placeholder="Номер телефона"/>
-            <input placeholder="Имя" />
-            <input placeholder="Пароль"/>
+            <input formControlName="phone" placeholder="Номер телефона"/>
+            <input formControlName="username" placeholder="Имя" />
+            <input formControlName="password" placeholder="Пароль"/>
             <div class="auth__submit"><button>Зарегестрироваться</button></div>
         </div>
     </form>

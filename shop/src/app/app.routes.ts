@@ -1,9 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
-import { MainpageComponent } from './pages/mainpage/mainpage.component';
-import { CategoriesComponent } from './pages/categories/categories.component';
-import { SearchComponent } from './pages/search/search.component';
-import { CreateadvertComponent } from './pages/createadvert/createadvert.component';
-import { AdvertComponent } from './pages/advert/advert.component';
+import { authGuard } from './services/guard/authentification.guard';
 
 export const routes: Routes = [
     {
@@ -26,11 +22,16 @@ export const routes: Routes = [
                 loadComponent: () => import('./pages/categories/categories.component').then(c => c.CategoriesComponent)
             },
             {
+                path: 'search',
+                loadComponent: () => import('./pages/search/search.component').then(c => c.SearchComponent)
+            },
+            {
                 path: 'advert',
                 loadComponent: () => import('./pages/search/search.component').then(c => c.SearchComponent),
                 children: [
                     {
                         path: 'create',
+                        canActivate: [authGuard],
                         loadComponent: () => import('./pages/createadvert/createadvert.component').then(c => c.CreateadvertComponent)
                     },
                     {
