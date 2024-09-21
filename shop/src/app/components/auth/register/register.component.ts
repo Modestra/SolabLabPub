@@ -14,17 +14,19 @@ import { UserForm } from '../../../entities/user';
 })
 export class RegisterComponent {
 
-  constructor(private _router: Router) {
+  constructor(private _router: Router, private _userservice: UserService) {
 
   }
   public form: FormGroup = new FormGroup({
-    phone: new FormControl(''),
-    username: new FormControl(''),
+    name: new FormControl(''),
+    login: new FormControl(''),
     password: new FormControl('')
   })
   onSubmit(form: any) {
-    inject(UserService).registerUser(form).subscribe((resp) => {
-
+    console.log(form.value)
+    this._userservice.registerUser(form.value).subscribe((resp) => {
+      this._router.navigate(['/'])
+      //"090f4353-9852-4ddd-a81d-e717ed2dd73c"
     })
   }
 }

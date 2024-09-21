@@ -17,8 +17,21 @@ export class UserService {
     return false;
   }
 
-  getUser(user: UserForm) {
-    return this.http.post(urls.courseUrl + '/Users', user, {
+  getUserbyId(userid: string): Observable<any> {
+    return this.http.get(urls.courseUrl + '/Users/' + userid, {
+      headers: new HttpHeaders({
+        "Accept": "text/plain",
+        'Access-Control-Allow-Origin': '*',
+        'Authorization': "Bearer " + sessionStorage.getItem("token")
+      }),
+      responseType: "json",
+      reportProgress: true,
+      observe: "events"
+    })
+  }
+
+  getUserCurrent() {
+    return this.http.get(urls.courseUrl + '/Users/current', {
       headers: new HttpHeaders({
         "Accept": "text/plain",
         'Access-Control-Allow-Origin': '*',
