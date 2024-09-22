@@ -11,6 +11,10 @@
         align-items: center;
         gap: 10px;
     }
+    &__block select{
+        background-color: none;
+        
+    }
 }
 .search{
     &__block{
