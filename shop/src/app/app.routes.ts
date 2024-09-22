@@ -4,7 +4,7 @@ import { authGuard } from './services/guard/authentification.guard';
 export const routes: Routes = [
     {
         path: '',
-        children: [
+        loadChildren: () => [
             {
                 path: '',
                 loadComponent: () => import('./pages/mainpage/mainpage.component').then(c => c.MainpageComponent)
@@ -28,15 +28,19 @@ export const routes: Routes = [
             {
                 path: 'advert',
                 loadComponent: () => import('./pages/search/search.component').then(c => c.SearchComponent),
-                children: [
+                loadChildren: () => [
                     {
                         path: 'create',
                         canActivate: [authGuard],
                         loadComponent: () => import('./pages/createadvert/createadvert.component').then(c => c.CreateadvertComponent)
                     },
                     {
-                        path: "advert/:id",
+                        path: ":id",
                         loadComponent: () => import('./pages/advert/advert.component').then(c => c.AdvertComponent)
+                    },
+                    {
+                        path: "me",
+                        loadComponent: () => import("./pages/my-advert/my-advert.component").then(c => c.MyAdvertComponent)
                     }
                 ]
             }

@@ -14,7 +14,7 @@ export class UserService {
   }
 
   public isLoggedIn(): boolean {
-    return false;
+    return localStorage.getItem('token') ? true : false;
   }
 
   getUserbyId(userid: string): Observable<any> {

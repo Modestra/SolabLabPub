@@ -1,5 +1,5 @@
 <div class="auth__page">
-    <form class="auth__form">
+    <form [formGroup]="form" (submit)="OnSubmit()" class="auth__form">
         <div class="auth__header">
             <p>Авторизация</p>
             <button>
@@ -11,16 +11,16 @@
             </button>
         </div>
         <div class="auth__main">
-            <input placeholder="Номер телефона"/>
-            <input placeholder="Пароль"/>
+            <input formControlName="login" placeholder="Логин"/>
+            <input formControlName="password" type="password" placeholder="Пароль"/>
             <div class="auth__checklist">
                 <div class="auth__checklist--input">
                     <input type="checkbox" name="remember_me"/>
                     <legend for="remember_me">Запомнить меня</legend>
                 </div>
-                <a href="">Забыли пароль?</a>
+                <a href="" routerLink="/register">Забыли пароль?</a>
             </div>
-            <div class="auth__submit"><button>Войти</button></div>
+            <div class="auth__submit"><button type="submit">Войти</button></div>
         </div>
     </form>
 </div>
