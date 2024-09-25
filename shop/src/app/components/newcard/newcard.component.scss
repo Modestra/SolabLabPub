@@ -1,0 +1,72 @@
+.card__form{
+    width: 306px;
+    height: 336px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #3B82F629;
+    border: 3px dotted #3B82F652;
+    color: #3B82F6;
+}
+.card__form img{
+    width: 306px;
+    height: 206px;
+    
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    border: none;
+    &__title{
+        color: #3B82F6;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    &__sell{
+        color: #1E293B;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    &__address{
+        color: #64748B;
+        font-size: 14px;
+    }
+    &__data{
+        color: #64748B;
+        font-size: 14px;
+    }
+}
+.card p{
+    margin: 0;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+
+}
+.cards{
+    &__container{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    &__container p{
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+        text-align: left;
+        margin-top: 32px;
+        margin-bottom: 24px;
+    }
+    &__block{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        min-height: 80vh;
+        gap: 8px;
+    }
+}
