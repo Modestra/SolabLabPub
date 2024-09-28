@@ -22,7 +22,7 @@ export class UserService {
       headers: new HttpHeaders({
         "Accept": "text/plain",
         'Access-Control-Allow-Origin': '*',
-        'Authorization': "Bearer " + sessionStorage.getItem("token")
+        'Authorization': "Bearer " + localStorage.getItem("token")
       }),
       responseType: "json",
       reportProgress: true,
@@ -35,7 +35,7 @@ export class UserService {
       headers: new HttpHeaders({
         "Accept": "text/plain",
         'Access-Control-Allow-Origin': '*',
-        'Authorization': "Bearer " + sessionStorage.getItem("token")
+        'Authorization': "Bearer " + localStorage.getItem("token")
       }),
       responseType: "json",
       reportProgress: true,
@@ -48,7 +48,7 @@ export class UserService {
       headers: new HttpHeaders({
         "Accept": "text/plain",
         'Access-Control-Allow-Origin': '*',
-        'Authorization': "Bearer " + sessionStorage.getItem("token")
+        'Authorization': "Bearer " + localStorage.getItem("token")
       }),
       responseType: "json",
       reportProgress: true,
@@ -60,7 +60,7 @@ export class UserService {
       headers: new HttpHeaders({
         "Accept": "text/plain",
         'Access-Control-Allow-Origin': '*',
-        'Authorization': "Bearer " + sessionStorage.getItem("token")
+        'Authorization': "Bearer " + localStorage.getItem("token")
       }),
       responseType: "json",
       reportProgress: true

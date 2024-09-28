@@ -25,6 +25,7 @@ export class RegisterComponent {
   onSubmit(form: any) {
     console.log(form.value)
     this._userservice.registerUser(form.value).subscribe((resp) => {
+      localStorage.setItem('user_id', resp as string)
       this._router.navigate(['/'])
       //"090f4353-9852-4ddd-a81d-e717ed2dd73c"
     })
