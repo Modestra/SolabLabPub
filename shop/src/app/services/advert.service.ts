@@ -9,7 +9,7 @@ import { urls } from '../http';
 export class AdvertService {
 
   constructor(private _http: HttpClient) {
-
+    
   }
 
   getAllAdvert() {

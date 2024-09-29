@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
+import { Category } from '../../entities/card';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-categories',
@@ -10,7 +12,20 @@ import { HeaderComponent } from '../../components/header/header.component';
 })
 export class CategoriesComponent {
 
-  constructor() {
+  public CategoriesParent : Category[] = [];
+  constructor(private category : CategoryService) {
 
   }
+
+  //Загружать дочерние категории
+  getChildsCategories(){
+
+  }
+  ngOnInit(): void {
+    this.category.getHeadCategories().subscribe((resp)=>{
+      this.CategoriesParent = resp
+      console.log(this.CategoriesParent)
+    })
+  }
+
 }

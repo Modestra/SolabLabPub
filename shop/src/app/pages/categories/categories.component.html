@@ -1,6 +1,8 @@
 <app-header></app-header>
 <section class="container categories__container">
     <nav class="categories__navbar">
-
+        @for (category of CategoriesParent; track $index) {
+            <div>{{category.name}}</div>
+        }
     </nav>
 </section>
