@@ -5,7 +5,7 @@
         <legend for="categories">Выберете категорию <span style="color: red;">*</span></legend>
         <select formControlName="category" name="categories" (change)="SetChildrensList($event)">
             @for (childrens of categories_list; track $index) {
-                <option [value]="childrens.category_id">{{childrens.name}}</option>
+                <option [value]="childrens.id">{{childrens.name}}</option>
             }
         </select>
         <legend for="title">Название объявления <span style="color: red;">*</span></legend>
@@ -21,7 +21,16 @@
         </datalist>
         <div formArrayName="images" class="files">
             <div class="files__header">
-                
+                <p-fileUpload 
+                mode="basic" 
+                chooseLabel="Загрузить картинки" 
+                chooseIcon="pi pi-upload"
+                name="demo[]"
+                accept="image/*" 
+                maxFileSize="1000000" 
+                (onUpload)="onUpload($event)">
+            </p-fileUpload>
+                <p>Максимум 10 картинок в формате jpeg, png или heic</p>
             </div>
             <div class="files__body">
 

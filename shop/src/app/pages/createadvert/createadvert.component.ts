@@ -2,14 +2,14 @@ import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { CategoryService } from '../../services/category.service';
 import { Category } from '../../entities/card';
-import { FileUploadModule } from 'primeng/fileupload';
+import { FileUploadModule, UploadEvent } from 'primeng/fileupload';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-createadvert',
   standalone: true,
-  imports: [HeaderComponent, ReactiveFormsModule],
+  imports: [HeaderComponent, ReactiveFormsModule, FileUploadModule],
   templateUrl: './createadvert.component.html',
   styleUrl: './createadvert.component.scss'
 })
@@ -29,6 +29,10 @@ export class CreateadvertComponent implements OnInit {
     this._category.getHeadCategories().subscribe((resp) => {
       this.categories_list = resp
     })
+  }
+
+  onUpload(event: UploadEvent) {
+    console.log("")
   }
 
   public form = this.fb.group({
@@ -54,6 +58,9 @@ export class CreateadvertComponent implements OnInit {
           })
         },
         error: () => {
+
+        },
+        complete: () => {
 
         }
       })

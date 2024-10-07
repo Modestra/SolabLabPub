@@ -9,9 +9,9 @@ import { Category } from '../entities/card';
 })
 export class CategoryService {
 
-  constructor(private _http:HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
-  getHeadCategories():Observable<Category[]>{
+  getHeadCategories(): Observable<Category[]> {
     return this._http.get<Category[]>(urls.apiUrl + "/categories/", {
       headers: new HttpHeaders({
         //'Authorization': "Bearer " + localStorage.getItem("token")
@@ -19,7 +19,7 @@ export class CategoryService {
     })
   }
 
-  getChildCategories(id : string):Observable<any>{
+  getChildCategories(id: string): Observable<any> {
     return this._http.get(urls.apiUrl + `/categories/?id=${id}`, {
       headers: new HttpHeaders({
         //'Authorization': "Bearer " + localStorage.getItem("token")

@@ -58,6 +58,31 @@
     border-color: #3B82F6;
 }
 
+.files{
+    height: 100%;
+    min-height: 36px;
+    margin-top: 20px;
+    border: 1px solid #CBD5E1;
+    border-radius: 3px;
+    &__header{
+        background-color: #F8FAFC;
+        height: 64px;
+        padding: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+    }
+    &__body{
+        height: 192px;
+        border-top: 1px solid #CBD5E1;
+    }
+}
 datalist{
     appearance: none;
     background-color: white;
