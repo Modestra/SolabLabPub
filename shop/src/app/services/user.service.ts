@@ -30,12 +30,10 @@ export class UserService {
     })
   }
 
-  getUserCurrent() {
-    return this.http.get(urls.courseUrl + '/Users/current', {
+  getUserCurrent(): Observable<any> {
+    return this.http.get("http://45.147.178.196:8000/competitions/", {
       headers: new HttpHeaders({
-        "Accept": "text/plain",
-        'Access-Control-Allow-Origin': '*',
-        'Authorization': "Bearer " + localStorage.getItem("token")
+        //'Authorization': "Bearer " + localStorage.getItem("token")
       }),
       responseType: "json",
       reportProgress: true,

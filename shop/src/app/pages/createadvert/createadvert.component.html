@@ -1,17 +1,34 @@
 <app-header></app-header>
 <section class="container advert__container">
-    <form class="advert__form">
+    <form [formGroup]="form" (submit)="onSubmit()" class="advert__form">
         <h3>Новое объявление</h3>
         <legend for="categories">Выберете категорию <span style="color: red;">*</span></legend>
-        <select name="categories"></select>
+        <select formControlName="category" name="categories" (change)="SetChildrensList($event)">
+            @for (childrens of categories_list; track $index) {
+                <option [value]="childrens.category_id">{{childrens.name}}</option>
+            }
+        </select>
         <legend for="title">Название объявления <span style="color: red;">*</span></legend>
-        <input name="title"/>
+        <input formControlName="title" name="title"/>
         <legend for="description">Описание</legend>
-        <textarea name="description"></textarea>
+        <textarea formControlName="description" name="description"></textarea>
         <legend for="adress">Адрес (место проведения сделки) <span style="color: red;">*</span></legend>
-        <input type="search" name="adress"/>
+        <input list="location" #location (input)="SearchLocation(location.value)" formControlName="location" type="search" name="address"/>
+        <datalist id="location">
+            @for (location of location_list; track $index) {
+                <option [value]="location">{{location}}</option>
+            }
+        </datalist>
+        <div formArrayName="images" class="files">
+            <div class="files__header">
+                
+            </div>
+            <div class="files__body">
+
+            </div>
+        </div>
         <legend for="cell">Цена</legend>
-        <input type="number" name="cell"/>
+        <input formControlName="cost" type="number" name="cost"/>
         <button type="submit" class="btn btn-submit">Разместить объявление</button>
         <p>Нажимая кнопку «Разместить объявление» 
             Вы соглашаетесь с правилами площадки</p>

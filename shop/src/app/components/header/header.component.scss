@@ -11,10 +11,6 @@
         align-items: center;
         gap: 10px;
     }
-    &__block select{
-        background-color: none;
-        
-    }
 }
 .search{
     &__block{
@@ -35,4 +31,31 @@
 }
 header{
     border-bottom: 1px solid #E2E8F0;
+}
+.settings{
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    background-color: var(--header-background-color);
+    color: white;
+    gap: 10px;
+    
+    &__list{
+        position: relative;
+
+    }
+
+    &__btn{
+        appearance: none;
+        background-color: var(--header-background-color);
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+}
+.settings > p{
+    text-align: center;
+    margin: 0px;
 }

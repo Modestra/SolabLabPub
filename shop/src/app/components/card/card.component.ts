@@ -10,7 +10,7 @@ import { CardProduct } from '../../entities/card';
 })
 export class CardComponent {
 
-    @Input() cardinfo : CardProduct = { name: "", sell: 0, address: "", time: ""};
+  @Input() cardinfo: CardProduct = { name: "", cost: 0, location: "", time: "Сегодня 14:12" };
 
-    
+
 }

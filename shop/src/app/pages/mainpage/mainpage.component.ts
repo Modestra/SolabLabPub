@@ -16,8 +16,6 @@ import { AdvertService } from '../../services/advert.service';
 })
 export class MainpageComponent implements OnInit {
 
-  public name: string = "";
-  public sell: number = 0;
   public router = this._router;
 
   private advert = inject(AdvertService)
@@ -29,7 +27,7 @@ export class MainpageComponent implements OnInit {
   }
   ngOnInit(): void {
     this.advert.getAllAdvert().subscribe((resp) => {
-      console.log(resp)
+      this.example = resp as CardProduct[]
     })
   }
 }

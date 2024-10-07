@@ -1,12 +1,11 @@
-export interface CardProduct{
+export interface CardProduct {
     name: string,
-    sell: number,
-    address: string,
+    cost: number,
+    location: string,
     time: string
 }
 
-export interface Category{
-    id: number,
+export interface Category {
     category_id: string,
     name: string,
     parentid: string

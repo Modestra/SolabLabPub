@@ -1,18 +1,19 @@
 <header>
     <section class="auth">
         <article class="container auth__block">
-            <button routerLinkActive="" type="button" class="btn btn-outline-light btn-outline-custom" routerLink="/login">
-                <svg width="20" height="20" viewBox="0 0 12 12" fill="black" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 6C7.65685 6 9 4.65685 9 3C9 1.34315 7.65685 0 6 0C4.34315 0 3 1.34315 3 3C3 4.65685 4.34315 6 6 6ZM8 3C8 4.10457 7.10457 5 6 5C4.89543 5 4 4.10457 4 3C4 1.89543 4.89543 1 6 1C7.10457 1 8 1.89543 8 3Z" fill="white" />
-                    <path d="M12 11C12 12 11 12 11 12H1C1 12 0 12 0 11C0 10 1 7 6 7C11 7 12 10 12 11ZM11 10.9965C10.9986 10.7497 10.8462 10.0104 10.1679 9.33211C9.51563 8.67985 8.2891 8 5.99999 8C3.71088 8 2.48435 8.67985 1.8321 9.33211C1.15375 10.0104 1.00142 10.7497 1 10.9965H11Z" fill="white" />
-                  </svg>
-                <select *ngIf="this.user.isLoggedIn()" name="menu">
-                    <option value="">Modestra</option>
+            <button class="btn btn-secondary settings" *ngIf="this.user.isLoggedIn()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 10C10.9946 10 11.9484 9.60491 12.6517 8.90165C13.3549 8.19839 13.75 7.24456 13.75 6.25C13.75 5.25544 13.3549 4.30161 12.6517 3.59835C11.9484 2.89509 10.9946 2.5 10 2.5C9.00544 2.5 8.05161 2.89509 7.34835 3.59835C6.64509 4.30161 6.25 5.25544 6.25 6.25C6.25 7.24456 6.64509 8.19839 7.34835 8.90165C8.05161 9.60491 9.00544 10 10 10ZM12.5 6.25C12.5 6.91304 12.2366 7.54893 11.7678 8.01777C11.2989 8.48661 10.663 8.75 10 8.75C9.33696 8.75 8.70107 8.48661 8.23223 8.01777C7.76339 7.54893 7.5 6.91304 7.5 6.25C7.5 5.58696 7.76339 4.95107 8.23223 4.48223C8.70107 4.01339 9.33696 3.75 10 3.75C10.663 3.75 11.2989 4.01339 11.7678 4.48223C12.2366 4.95107 12.5 5.58696 12.5 6.25ZM17.5 16.25C17.5 17.5 16.25 17.5 16.25 17.5H3.75C3.75 17.5 2.5 17.5 2.5 16.25C2.5 15 3.75 11.25 10 11.25C16.25 11.25 17.5 15 17.5 16.25ZM16.25 16.245C16.2487 15.9375 16.0575 15.0125 15.21 14.165C14.395 13.35 12.8612 12.5 10 12.5C7.1375 12.5 5.605 13.35 4.79 14.165C3.9425 15.0125 3.7525 15.9375 3.75 16.245H16.25Z" fill="white"/>
+                </svg>
+                <p>Modestra</p>
+                <select (change)="LoadUser()" class="settings__btn" id="menu">
                     <option value="adverts">Мои объявления</option>
-                    <option value="settings">Настройка</option>
-                    <option value="exit">Выход</option>
+                    <option value="settings">Настройки</option>
+                    <option value="exit">Выйти</option>
                 </select>
-                <p *ngIf="!this.user.isLoggedIn()">Войти</p>
+            </button>
+            <button *ngIf="!this.user.isLoggedIn()">
+
             </button>
             <button type="button" class="btn btn-primary" routerLink="/advert/create/">
                 Новое объявление 
