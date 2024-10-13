@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   public user = inject(UserService);
   public VisibleLogin: boolean = false;
   public options: HTMLSelectElement = document.getElementById('menu') as HTMLSelectElement;
+  public router = inject(Router)
   constructor() {
 
   }

@@ -28,6 +28,10 @@ export const routes: Routes = [
             {
                 path: 'advert',
                 loadChildren: () => import('./pages/advert.module').then(m => m.AdvertModule)
+            },
+            {
+                path: 'settings',
+                loadComponent: () => import('./pages/settings/settings.component').then(c => c.SettingsComponent)
             }
         ]
     },

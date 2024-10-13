@@ -1,2 +1,22 @@
 
 <app-header></app-header>
+<div class="container settings__container">
+    <form action="" class="settings__form">
+        <h3>Настройки</h3>
+        <legend for="name">Имя</legend>
+        <input name="name"/>
+        <legend for="phone">Номер телефона</legend>
+        <input name="phone"/>
+        <legend for="address">Адрес (будет указываться в объявлениях по умолчанию)</legend>
+        <input list="location" #location (input)="SearchLocation(location.value)" formControlName="location" type="search" name="address"/>
+        <button type="submit" class="btn btn-submit">Сохранить</button>
+    </form>
+    <form action="" class="settings__form">
+        <h3>Смена пароля</h3>
+        <legend for="oldpass">Старый пароль</legend>
+        <input name="oldpass"/>
+        <legend for="newpass">Новый пароль</legend>
+        <input name="newpass"/>
+        <button type="submit" class="btn btn-submit">Изменить пароль</button>
+    </form>
+</div>

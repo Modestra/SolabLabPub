@@ -7,6 +7,11 @@ export interface CardProduct {
 
 export interface Category {
     id: string,
+    category_id: string,
     name: string,
     parentid: string
+}
+
+export interface Advert {
+
 }

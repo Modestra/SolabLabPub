@@ -3,5 +3,8 @@
     <h3>Мои объявления</h3>
     <div class="cards__block">
         <app-newcard></app-newcard>
+        @for (advert of adverts; track $index) {
+            <app-card [cardinfo]="advert"></app-card>
+        }
     </div>
 </div>

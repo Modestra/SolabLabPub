@@ -1,39 +1,48 @@
+<p-toast></p-toast>
 <app-header></app-header>
 <section class="container advert__container">
     <form [formGroup]="form" (submit)="onSubmit()" class="advert__form">
         <h3>Новое объявление</h3>
         <legend for="categories">Выберете категорию <span style="color: red;">*</span></legend>
-        <select formControlName="category" name="categories" (change)="SetChildrensList($event)">
+        <select formControlName="categoryid" name="categories" (change)="SetChildrensList($event)">
             @for (childrens of categories_list; track $index) {
-                <option [value]="childrens.id">{{childrens.name}}</option>
+                <option [value]="childrens.category_id">{{childrens.name}}</option>
             }
         </select>
         <legend for="title">Название объявления <span style="color: red;">*</span></legend>
-        <input formControlName="title" name="title"/>
+        <input formControlName="name" name="title"/>
         <legend for="description">Описание</legend>
         <textarea formControlName="description" name="description"></textarea>
-        <legend for="adress">Адрес (место проведения сделки) <span style="color: red;">*</span></legend>
+        <legend for="address">Адрес (место проведения сделки) <span style="color: red;">*</span></legend>
         <input list="location" #location (input)="SearchLocation(location.value)" formControlName="location" type="search" name="address"/>
         <datalist id="location">
             @for (location of location_list; track $index) {
                 <option [value]="location">{{location}}</option>
             }
         </datalist>
-        <div formArrayName="images" class="files">
-            <div class="files__header">
-                <p-fileUpload 
+        <div formArrayName="image" class="files">
+            <p-fileUpload 
                 mode="basic" 
                 chooseLabel="Загрузить картинки" 
                 chooseIcon="pi pi-upload"
                 name="demo[]"
                 accept="image/*" 
-                maxFileSize="1000000" 
+                maxFileSize="1000000"
+                [multiple]="true"
                 (onUpload)="onUpload($event)">
-            </p-fileUpload>
-                <p>Максимум 10 картинок в формате jpeg, png или heic</p>
-            </div>
-            <div class="files__body">
+                <ng-template pTemplate="header">
 
+                </ng-template>
+                
+            </p-fileUpload>
+            <div class="files__body">
+                <ng-template pTemplate="content">
+                    <ul *ngIf="uploadsFiles.length">
+                        <li *ngFor="let file of uploadsFiles">
+                            {{ file.name }} - {{ file.size }} bytes
+                        </li>
+                    </ul>
+                </ng-template>
             </div>
         </div>
         <legend for="cell">Цена</legend>
