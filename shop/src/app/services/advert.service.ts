@@ -39,7 +39,7 @@ export class AdvertService {
   createNewAdvert(advert: any): Observable<Advert> {
     return this._http.post<Advert>(urls.courseUrl + '/Advert/', advert, {
       headers: new HttpHeaders({
-
+        "Content-Type": "multipart/form-data"
       }),
     })
   }

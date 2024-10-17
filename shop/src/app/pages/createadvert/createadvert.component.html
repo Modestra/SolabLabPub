@@ -4,23 +4,23 @@
     <form [formGroup]="form" (submit)="onSubmit()" class="advert__form">
         <h3>Новое объявление</h3>
         <legend for="categories">Выберете категорию <span style="color: red;">*</span></legend>
-        <select formControlName="categoryid" name="categories" (change)="SetChildrensList($event)">
+        <select formControlName="Categoryid" name="categories" (change)="SetChildrensList($event)">
             @for (childrens of categories_list; track $index) {
                 <option [value]="childrens.id">{{childrens.name}}</option>
             }
         </select>
         <legend for="title">Название объявления <span style="color: red;">*</span></legend>
-        <input formControlName="name" name="title"/>
+        <input formControlName="Name" name="title"/>
         <legend for="description">Описание</legend>
-        <textarea formControlName="description" name="description"></textarea>
+        <textarea formControlName="Description" name="description"></textarea>
         <legend for="address">Адрес (место проведения сделки) <span style="color: red;">*</span></legend>
-        <input list="location" #location (input)="SearchLocation(location.value)" formControlName="location" type="search" name="address"/>
+        <input list="location" #location (input)="SearchLocation(location.value)" formControlName="Location" type="search" name="address"/>
         <datalist id="location">
             @for (location of location_list; track $index) {
                 <option [value]="location">{{location}}</option>
             }
         </datalist>
-        <div formArrayName="image" class="files">
+        <div formArrayName="Images" class="files">
             <p-fileUpload 
                 mode="basic" 
                 chooseLabel="Загрузить картинки" 
@@ -46,7 +46,7 @@
             </div>
         </div>
         <legend for="cell">Цена</legend>
-        <input formControlName="cost" type="number" name="cost"/>
+        <input formControlName="Cost" type="number" name="cost"/>
         <button type="submit" class="btn btn-submit">Разместить объявление</button>
         <p>Нажимая кнопку «Разместить объявление» 
             Вы соглашаетесь с правилами площадки</p>

@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <header>
     <section class="auth">
         <article class="container auth__block">
@@ -10,7 +11,7 @@
                 <p-dialog header="Авторизация" [(visible)]="visibleLogin" [style]="{ width: '25rem' }">
                     <form [formGroup]="authform" class="auth__main">
                         <input formControlName="login" placeholder="Логин"/>
-                        <input formControlName="password" type="password" placeholder="Пароль"/>
+                        <input formControlName="password" type="password" placeholder="Пароль" />
                         <div class="auth__checklist">
                             <div class="auth__checklist--input">
                                 <input type="checkbox" name="remember_me"/>
@@ -25,7 +26,7 @@
                     <form [formGroup]="authform" class="auth__main">
                         <input formControlName="login" placeholder="Логин"/>
                         <input formControlName="name" placeholder="Имя" />
-                        <input formControlName="password" placeholder="Пароль"/>
+                        <input formControlName="password" placeholder="Пароль" type="password"/>
                         <a href="" (click)="this.visibleLogin = false; this.visibleRegister = true">Есть аккаунт?</a>
                         <div class="auth__submit" (click)="Register()"><button>Зарегестрироваться</button></div>
                     </form>

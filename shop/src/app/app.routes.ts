@@ -24,17 +24,16 @@ export const routes: Routes = [
             {
                 path: 'search',
                 loadComponent: () => import('./pages/search/search.component').then(c => c.SearchComponent),
-                data: {
-                    "search": ""
-                }
             },
             {
                 path: 'advert',
-                loadChildren: () => import('./pages/advert.module').then(m => m.AdvertModule)
+                loadChildren: () => import('./pages/advert.module').then(m => m.AdvertModule),
+                canActivate: [authGuard]
             },
             {
                 path: 'settings',
-                loadComponent: () => import('./pages/settings/settings.component').then(c => c.SettingsComponent)
+                loadComponent: () => import('./pages/settings/settings.component').then(c => c.SettingsComponent),
+                canActivate: [authGuard]
             }
         ]
     },

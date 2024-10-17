@@ -5,14 +5,14 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { AdvertService } from '../../services/advert.service';
 import { CategoryService } from '../../services/category.service';
 import { Category, Search } from '../../entities/card';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Advert, CardProduct } from '../../entities/card';
 import { CardComponent } from '../../components/card/card.component';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [HeaderComponent, DropdownModule, FormsModule, CardComponent],
+  imports: [HeaderComponent, DropdownModule, FormsModule, CardComponent, ReactiveFormsModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'
 })
@@ -40,13 +40,19 @@ export class SearchComponent implements OnInit {
     }
   ]
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private fb: FormBuilder) {
 
   }
 
   SetSortedList(event: Event) {
 
   }
+
+  public sortForm = this.fb.group({
+    categoryId: [''],
+    minCell: [0],
+    maxCell: [0]
+  })
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params: Params) => {

@@ -53,14 +53,14 @@ export class CreateadvertComponent implements OnInit {
 
   public form = this.fb.group({
     user_id: [localStorage.getItem("user_id"), Validators.required],
-    name: ['', Validators.required],
-    description: [''],
-    cost: [''],
-    image: this.fb.array([this.fb.control('')]),
-    email: ['user@gmail.com', Validators.required],
-    phone: ['88005553535', Validators.required],
-    location: ['', Validators.required],
-    categoryid: ['', Validators.required],
+    Name: ['', Validators.required],
+    Description: [''],
+    Cost: [''],
+    Images: this.fb.array([this.fb.control('')]),
+    Email: ['user@gmail.com', Validators.required],
+    Phone: ['88005553535', Validators.required],
+    Location: ['', Validators.required],
+    Categoryid: ['', Validators.required],
   })
 
   SetChildrensList(event: any) {

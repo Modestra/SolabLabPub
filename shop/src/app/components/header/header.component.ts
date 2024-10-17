@@ -8,11 +8,12 @@ import { SplitButton, SplitButtonModule } from 'primeng/splitbutton';
 import { MenuItem, MessageService } from 'primeng/api';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardComponent } from '../card/card.component';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, CommonModule, AuthModule, DialogModule, SplitButtonModule, FormsModule, ReactiveFormsModule, CardComponent],
+  imports: [RouterModule, CommonModule, AuthModule, DialogModule, SplitButtonModule, FormsModule, ReactiveFormsModule, CardComponent, ToastModule],
   providers: [MessageService],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
@@ -84,6 +85,10 @@ export class HeaderComponent implements OnInit, OnChanges {
       next: (resp) => {
         localStorage.setItem('user_id', JSON.stringify(resp))
         this.visibleRegister = false
+        this.message.add({ severity: 'success', summary: 'Success', detail: 'Регистрация прошла успешно' })
+      },
+      error: (error) => {
+        this.message.add({ severity: 'error', summary: 'Error', detail: 'Не удалось зарегестрировать пользоваталя' })
       }
     })
   }
@@ -93,6 +98,10 @@ export class HeaderComponent implements OnInit, OnChanges {
       next: (resp) => {
         localStorage.setItem('token', JSON.stringify(resp))
         this.visibleLogin = false
+        this.message.add({ severity: 'success', summary: 'Success', detail: 'Авторизация прошла успешно' })
+      },
+      error: (error) => {
+        this.message.add({ severity: 'error', summary: 'Error', detail: 'Не удалось авторизоваться' })
       }
     })
   }

@@ -2,17 +2,17 @@
 <div class="container">
     <h3>Объявления по запросу {{search.search}}</h3>
     <div class="cards__block">
-        <div class="cards__nav">
+        <form [formGroup]="sortForm" class="cards__nav">
             <p>Все категории</p>
             @for (category of CategoryList; track $index) {
                 <div class="nav__categories">{{category.name}}</div>
             }
             <p style="margin-top: 12px;">Цена</p>
             <div class="cards__result__cell">
-                <input type="text"><input type="text">
+                <input formControlName="minCell" type="number"><input formControlName="maxCell" type="number">
             </div>
             <button type="submit" class="btn btn-submit">Показать объявления</button>
-        </div>
+        </form>
         <div class="cards__result">
             <div class="cards__result__header">
                 <p>Всего найдено {{advertList.length}} результатов</p>
