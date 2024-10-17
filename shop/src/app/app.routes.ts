@@ -23,7 +23,10 @@ export const routes: Routes = [
             },
             {
                 path: 'search',
-                loadComponent: () => import('./pages/search/search.component').then(c => c.SearchComponent)
+                loadComponent: () => import('./pages/search/search.component').then(c => c.SearchComponent),
+                data: {
+                    "search": ""
+                }
             },
             {
                 path: 'advert',

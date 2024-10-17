@@ -12,15 +12,15 @@ export class CategoryService {
   constructor(private _http: HttpClient) { }
 
   getHeadCategories(): Observable<Category[]> {
-    return this._http.get<Category[]>(urls.apiUrl + "/categories/", {
+    return this._http.get<Category[]>(urls.courseUrl + "/categories/", {
       headers: new HttpHeaders({
         //'Authorization': "Bearer " + localStorage.getItem("token")
       }),
     })
   }
 
-  getChildCategories(id: string): Observable<any> {
-    return this._http.get(urls.apiUrl + `/categories/?id=${id}`, {
+  getChildCategories(id: string): Observable<Category> {
+    return this._http.get<Category>(urls.courseUrl + `/categories/${id}`, {
       headers: new HttpHeaders({
         //'Authorization': "Bearer " + localStorage.getItem("token")
       }),

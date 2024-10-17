@@ -24,7 +24,7 @@ export class MyAdvertComponent implements OnInit {
   ngOnInit(): void {
     this.advert.getUserAdvert(localStorage.getItem('user_id')!).subscribe({
       next: (resp) => {
-        this.adverts = resp as CardProduct[]
+
       },
       error: (error) => {
         console.error("Не удалось загрузить объекты", error)

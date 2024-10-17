@@ -3,3 +3,8 @@ export interface UserForm {
     username: string,
     password: string
 }
+
+export interface ShortUser {
+    id: string,
+    name: string
+}

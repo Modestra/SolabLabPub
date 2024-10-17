@@ -3,6 +3,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { Category } from '../../entities/card';
 import { CategoryService } from '../../services/category.service';
 import { NgClass } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -14,24 +15,33 @@ import { NgClass } from '@angular/common';
 export class CategoriesComponent {
 
   public CategoriesParent: Category[] = [];
-  public categorySelected: string = "";
+  public categorySelected: Category = {} as Category;
+  public router = inject(Router)
   constructor(private category: CategoryService) {
 
   }
 
-  //Загружать дочерние категории
-  getChildsCategories() {
-
+  SearchAdverts(category: Category) {
+    this.router.navigate(['/search'], { queryParams: { 'categoryId': category.id } })
   }
 
-  SelectCategory(event: Event) {
+  SelectCategory(id: string) {
+    this.category.getChildCategories(id).subscribe({
+      next: (resp) => {
+        this.categorySelected = resp
+      },
+      error: () => {
 
+      }
+    })
   }
 
   ngOnInit(): void {
-    this.category.getHeadCategories().subscribe((resp) => {
-      this.CategoriesParent = resp
-      console.log(this.CategoriesParent)
+    this.category.getHeadCategories().subscribe({
+      next: (responce) => {
+        this.CategoriesParent = responce.filter(category => category.parentId === "00000000-0000-0000-0000-000000000000")
+        console.log(this.CategoriesParent)
+      }
     })
   }
 

@@ -56,16 +56,13 @@ export class CreateadvertComponent implements OnInit {
     name: ['', Validators.required],
     description: [''],
     cost: [''],
+    image: this.fb.array([this.fb.control('')]),
     email: ['user@gmail.com', Validators.required],
     phone: ['88005553535', Validators.required],
     location: ['', Validators.required],
     categoryid: ['', Validators.required],
   })
 
-  //Отдельная форма для загрузки изображений
-  public images = this.fb.group({
-    image: this.fb.array([this.fb.control('')])
-  })
   SetChildrensList(event: any) {
 
   }

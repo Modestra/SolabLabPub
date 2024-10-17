@@ -1,1 +1,31 @@
 <app-header></app-header>
+<div class="container">
+    <h3>Объявления по запросу {{result}}</h3>
+    <div class="cards__block">
+        <div class="cards__nav">
+            <p>Все категории</p>
+            @for (category of CategoryList; track $index) {
+                <div class="nav__categories">{{category.name}}</div>
+            }
+            <p style="margin-top: 12px;">Цена</p>
+            <div class="cards__result__cell">
+                <input type="text"><input type="text">
+            </div>
+            <button type="submit" class="btn btn-submit">Показать объявления</button>
+        </div>
+        <div class="cards__result">
+            <div class="cards__result__header">
+                <p>Всего найдено {{advertList.length}} результатов</p>
+                <select (change)="SetSortedList($event)">
+                    @for (sort of sortList; track $index) {
+                        <option [value]="sort.name">{{sort.name}}</option>
+                    }
+                </select>
+            </div>
+            @for (card of advertList; track $index) {
+
+            }
+        </div>
+
+    </div>
+</div>

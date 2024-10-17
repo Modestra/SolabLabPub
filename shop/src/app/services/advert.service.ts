@@ -5,7 +5,7 @@ import { urls } from '../http';
 import { Advert } from '../entities/card';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdvertService {
 
@@ -14,23 +14,23 @@ export class AdvertService {
   }
 
   getAllAdvert() {
-    return this._http.get(urls.apiUrl + "/advert/", {
+    return this._http.get(urls.courseUrl + "/advert/", {
       headers: new HttpHeaders({
         //'Authorization': "Bearer " + localStorage.getItem("token")
       }),
     })
   }
 
-  createNewAdvert(advert: Advert): Observable<Advert> {
-    return this._http.post(urls.apiUrl + '/advert/create', advert, {
+  createNewAdvert(advert: any): Observable<Advert> {
+    return this._http.post<Advert>(urls.courseUrl + '/Advert/', advert, {
       headers: new HttpHeaders({
-        //'Authorization': "Bearer " + localStorage.getItem("token")
+
       }),
     })
   }
 
   getUserAdvert(userid: string): Observable<Advert> {
-    return this._http.get(urls.apiUrl + `/advert/user?id=${userid}`, {
+    return this._http.get<Advert>(urls.courseUrl + `/advert/user?id=${userid}`, {
       headers: new HttpHeaders({
         //'Authorization': "Bearer " + localStorage.getItem("token")
       }),

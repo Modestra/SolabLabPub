@@ -6,7 +6,7 @@
         <legend for="categories">Выберете категорию <span style="color: red;">*</span></legend>
         <select formControlName="categoryid" name="categories" (change)="SetChildrensList($event)">
             @for (childrens of categories_list; track $index) {
-                <option [value]="childrens.category_id">{{childrens.name}}</option>
+                <option [value]="childrens.id">{{childrens.name}}</option>
             }
         </select>
         <legend for="title">Название объявления <span style="color: red;">*</span></legend>
