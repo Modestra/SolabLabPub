@@ -1,10 +1,18 @@
 import { ShortUser } from "./user"
 
 export interface CardProduct {
+    id: string,
     name: string,
     cost: number,
     location: string,
-    time: string
+    createdAt: string,
+    imagesIds: string[]
+}
+
+export interface Search {
+    search: string,
+    showNonActive: boolean,
+    category: string
 }
 
 export interface Category {

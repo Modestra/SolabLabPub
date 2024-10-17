@@ -1,9 +1,9 @@
-<div class="card__form">
-    <img src="../../assets/Guitar.png" alt="">
+<div class="card__form" (click)="LoadAdvert()">
+    <img [src]="imageUrl" alt="">
     <div class="card">
         <p class="card__title">{{cardinfo.name}}</p>
-        <p class="card__sell">{{cardinfo.cost}}</p>
+        <p class="card__sell">{{cardinfo.cost}} Р</p>
         <p class="card__address">{{cardinfo.location}}</p>
-        <p class="card__data">{{cardinfo.time}}</p>
+        <p class="card__data">{{cardinfo.createdAt}}</p>
     </div>
 </div>

@@ -1,2 +1,16 @@
 <app-header></app-header>
-<p>advert works</p>
+<div class="container advert">
+    <div class="advert__images">
+        <h3>{{advertInfo.name}}</h3>
+        <img src="" alt="">
+
+    </div>
+    <div class="advert__info">
+        <h3 style="margin-top: 0px;">{{advertInfo.cost}} Р</h3>
+        <button type="submit" class="btn btn-submit">Показать номер телефона</button>
+        <h3>Адрес</h3>
+        <p>{{advertInfo.location}}</p>
+        <h3>Описание</h3>
+        <p>{{advertInfo.description}}</p>
+    </div>
+</div>

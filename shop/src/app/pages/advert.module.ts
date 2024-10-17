@@ -9,7 +9,7 @@ const routes: Routes = [
     loadComponent: () => import("./search/search.component").then(c => c.SearchComponent)
   },
   {
-    path: "<:id>",
+    path: "info",
     loadComponent: () => import("./advert/advert.component").then(c => c.AdvertComponent)
   },
   {

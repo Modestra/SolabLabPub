@@ -4,13 +4,17 @@ import { PreloadAllModules, provideRouter, withPreloading } from '@angular/route
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpHandlerFn } from '@angular/common/http';
+import { HttpRequest, HttpHandlerFn } from '@angular/common/http';
 
 export function authInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn) {
-  const newReq = req.clone({
-    headers: req.headers.append("Authorization", `Bearer ${localStorage.getItem("token")}`),
-  });
-  return next(newReq);
+  if (localStorage.getItem('token')) {
+    const token = localStorage.getItem('token')
+    const newReq = req.clone({
+      headers: req.headers.append("Authorization", `Bearer ${token?.slice(1, -1)}`),
+    });
+    return next(newReq)
+  }
+  return next(req);
 }
 
 export const appConfig: ApplicationConfig = {

@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
-    <h3>Объявления по запросу {{result}}</h3>
+    <h3>Объявления по запросу {{search.search}}</h3>
     <div class="cards__block">
         <div class="cards__nav">
             <p>Все категории</p>
@@ -22,9 +22,11 @@
                     }
                 </select>
             </div>
-            @for (card of advertList; track $index) {
-
-            }
+            <div class="cards__result__body">
+                @for (card of advertList; track $index) {
+                    <app-card [cardinfo]="card"></app-card>
+                }
+            </div>
         </div>
 
     </div>
